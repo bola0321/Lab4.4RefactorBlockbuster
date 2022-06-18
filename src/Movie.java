@@ -2,13 +2,20 @@ import java.util.ArrayList;
 import java.util.List;
  
 
-abstract class Movie {
+public class Movie {
+	private Play iplay;
 	private String title;
 	private int runTime;
-	protected ArrayList<String> scenes;
+	private ArrayList<String> scenes;
 	
 	
 	
+	public Movie(String title, int runTime, List<String> scenes, Play iplay) {
+		this.title = title;
+		this.runTime = runTime;
+		this.scenes = new ArrayList<>(scenes);
+		this.iplay = iplay;
+	}	
 	
 	
 	
@@ -20,12 +27,6 @@ abstract class Movie {
 		this.runTime = runTime;
 	}
 	
-	
-	public Movie(String title, int runTime, List<String> scenes) {
-		this.title = title;
-		this.runTime = runTime;
-		this.scenes = new ArrayList<>(scenes);
-	}
 	 
 	public ArrayList<String> getScenes() {
 		return scenes;
@@ -39,6 +40,20 @@ abstract class Movie {
 		return title;
 	}
 	
+	
+	
+	public Play getIplay() {
+		return iplay;
+	}
+
+
+
+	public void setIplay(Play iplay) {
+		this.iplay = iplay;
+	}
+
+
+
 	public void printInfo() {
 		System.out.println(title);
 		System.out.println("Runtime: " + runTime);
@@ -48,7 +63,10 @@ abstract class Movie {
 			System.out.println("Scene: " + i + " " +scenes.get(i));
 		}
 	}
-	public abstract void play();
+	public void play() {
+		iplay.play(scenes);
+		
+	}
 }	
 
 	

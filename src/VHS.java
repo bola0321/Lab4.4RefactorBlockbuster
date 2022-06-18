@@ -1,17 +1,14 @@
-import java.util.ArrayList;
+
 import java.util.List;
 
-public class VHS extends Movie{
+public class VHS implements Play{
 	
-	public VHS(String title, int runTime, List<String> scenes) {
-		super(title, runTime, scenes);
-		// TODO Auto-generated constructor stub
-	}
+
 
 	private int currentTime = 0;
 	
-	@Override
-	public void play() {
+	
+	public void play(List <String> scenes) {
 		System.out.println(scenes.get(currentTime));
 		currentTime++;
 		if (currentTime > scenes.size()-1) {
